@@ -5,8 +5,8 @@ import java.io.IOException;
 
 public class FileCopy {
     public static void main(String[] args) {
-        String sourceFilePath = "./files/source.txt"; // Путь к исходному файлу
-        String destinationFilePath = "./files/destination.txt"; // Путь к целевому файлу
+        String sourceFilePath = "./files/source.txt"; 
+        String destinationFilePath = "./files/destination.txt"; 
 
         FileInputStream fis = null;
         FileOutputStream fos = null;
@@ -35,6 +35,7 @@ public class FileCopy {
 
         } catch (IOException e) {
             System.out.println("Error when working with files: " + e.getMessage());
+            ErrorLogger.logException(e); // Логирование ошибки
         } finally {
             // Закрытие потоков
             try {
@@ -46,6 +47,7 @@ public class FileCopy {
                 }
             } catch (IOException e) {
                 System.out.println("Error closing files: " + e.getMessage());
+                ErrorLogger.logException(e); // Логирование ошибки закрытия потока
             }
         }
     }
